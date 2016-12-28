@@ -1,0 +1,28 @@
+{
+  "name": "myweb",
+  "version": "1.0.0",
+  "description": "学习项目",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express3-handlebars": "^0.5.2",
+    "express-handlebars": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiabloZXL/MyWeb.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "DiabloZXL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiabloZXL/MyWeb/issues"
+  },
+  "homepage": "https://github.com/DiabloZXL/MyWeb#readme"
+}
