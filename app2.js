@@ -8,10 +8,12 @@ app.set('view engine','handlebars');
 
 var fortune =require('./lib/fortune.js');
 
+var weather =require('./lib/weather.js');
+
 app.set('port',process.env.PORT|| 3000);
 
 app.get('/',function(req,res){
-    res.render('home');
+    res.render('home',{layout:null});
 });
 
 app.get('/about',function(req,res){
@@ -26,10 +28,15 @@ app.use(function(req,res,next){
 });
 
 app.use(function(req,res,next){
+  if (!res.locals.partials) res.locals.partials ={};
+  res.locals.partials.weather =  weather.getWeather();
+});
+
+
+app.use(function(req,res,next){
     res.status(500);
     res.render('500');
 });
-
 
 app.listen(app.get('port'),function(){
     console.log( 'Express started on http://localhost:' +app.get('port') + '; press Ctrl-C to terminate.' );
