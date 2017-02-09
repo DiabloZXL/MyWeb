@@ -2,7 +2,15 @@ var express =require("express");
 
 var app = express();
 
-var handlebars = require("express3-handlebars").create({defaultLayout:'main'});
+var handlebars = require("express3-handlebars").create({defaultLayout:'main',
+helpers:{
+    section:function(name,options){
+        if (!this._sections) this._sections ={};
+        this._sections[name] = options.fn(this);
+        return null;
+    }
+}
+});
 app.engine('handlebars',handlebars.engine);
 app.set('view engine','handlebars');
 
@@ -18,6 +26,11 @@ app.get('/',function(req,res){
 
 app.get('/about',function(req,res){
     res.render('about', { fortune: fortune.getFortune() });
+    }
+);
+
+app.get('/jquerytest',function(req,res){
+    res.render('jquerytest');
     }
 );
 app.use(express.static(__dirname + '/public'));
